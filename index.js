@@ -3,6 +3,7 @@ const app = new Koa();
 const Router = require('koa-router');
 const axios = require('axios');
 const cors = require('@koa/cors');
+require('dotenv').config();
 
 var router = new Router();
 
@@ -24,7 +25,7 @@ router.get('/', async (ctx, next) => {
   if(!agenciesData) {
     const agencies = await Promise.all(
       zenikaAgencies.map(zenikaAgencie => {
-        return axios.get(`https://api.darksky.net/forecast/{API KEY}/${zenikaAgencie.lat},${zenikaAgencie.lon}`)
+        return axios.get(`https://api.darksky.net/forecast/${process.env.APIKEY}/${zenikaAgencie.lat},${zenikaAgencie.lon}`)
       })
     )
       .then(weatherDatas => {
