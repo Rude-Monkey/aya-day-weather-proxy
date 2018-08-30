@@ -42,7 +42,7 @@ router.get('/', async (ctx, next) => {
       agenciesData = agencies;
       ctx.body = agencies;
   } else {
-    ctx.body = agenciesData
+    ctx.body = agenciesData;
   }
 
   return next();
