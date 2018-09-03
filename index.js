@@ -7,8 +7,6 @@ require('dotenv').config();
 
 var router = new Router();
 
-console.log('Hello world!');
-
 let agenciesData;
 
 router.get('/', async (ctx, next) => {
